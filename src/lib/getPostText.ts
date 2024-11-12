@@ -11,13 +11,13 @@ export default async function getPostText() {
   const targetHour = 17; // 24-hour format
 
   // Function to calculate minutes until 5:00 PM
-  const minutesUntilTarget = (currentTime, targetTime) => {
+  const minutesUntilTarget = (currentTime: any, targetTime: any) => {
     const duration = moment.duration(targetTime.diff(currentTime));
     return Math.floor(duration.asMinutes());
   };
 
   // Function to format timezone names
-  const formatTimezoneName = (name) => {
+  const formatTimezoneName = (name: any) => {
     // Get the part after the last "/"
     const formattedName = name
       .split("/")
@@ -29,10 +29,10 @@ export default async function getPostText() {
   };
 
   // Array to store the results
-  const results = [];
+  const results = [] as any[];
 
   // Iterate over each time zone
-  timezones.forEach((tz) => {
+  timezones.forEach((tz: any) => {
     // Filter out time zones that don’t contain "/" or contain "GMT"
     if (!tz.includes("/") || tz.includes("GMT")) return;
 
@@ -58,19 +58,19 @@ export default async function getPostText() {
   });
 
   // Sort the filtered results by minutesUntil in ascending order
-  results.sort((a, b) => a[1] - b[1]);
+  results.sort((a: any, b: any) => a[1] - b[1]);
 
   // Display the sorted and formatted results
   console.log(results);
 
-  function getRandomInt(min, max) {
+  function getRandomInt(min: any, max: any) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   if (results.length == 0) {
-    return null;
+    return "";
   } else {
     const randomIndex = getRandomInt(0, results.length - 1);
     return "It's five o'clock in " + results[randomIndex][0] + "! https://www.youtube.com/watch?v=BPCjC543llU";
