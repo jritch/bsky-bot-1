@@ -8,7 +8,7 @@ import atproto from "@atproto/api";
 const { BskyAgent, RichText } = atproto;
 
 type BotOptions = {
-  service: string | URL;
+  service: string | URL | null;
   dryRun: boolean;
 };
 
