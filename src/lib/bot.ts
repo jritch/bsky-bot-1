@@ -48,7 +48,7 @@ export default class Bot {
   }
 
   static async run(
-    getPostText: () => Promise<string | null>,
+    getPostText: () => Promise<string>,
     botOptions?: Partial<BotOptions>
   ) {
     const { service, dryRun } = botOptions
