@@ -39,7 +39,7 @@ export default class Bot {
       await richText.detectFacets(this.#agent);
       console.log(richText.text);
       console.log(richText.facets);
-      console.log(richText.facets[0].features)
+      console.log(richText.facets![0].features)
       const record = {
         text: richText.text,
         facets: richText.facets,
