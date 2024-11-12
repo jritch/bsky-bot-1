@@ -3,7 +3,7 @@ import getPostText from "./lib/getPostText.js";
 
 const text = await Bot.run(getPostText, { dryRun: false });
 
-if (text !== null) {
+if (text !== "") {
   console.log(`[${new Date().toISOString()}] Posted: "${text}"`);
 }
 else {
