@@ -8,7 +8,7 @@ import atproto from "@atproto/api";
 const { BskyAgent, RichText } = atproto;
 
 type BotOptions = {
-  service: string | URL | null;
+  service: string | URL;
   dryRun: boolean;
 };
 
@@ -57,7 +57,7 @@ export default class Bot {
     const bot = new Bot(service);
     await bot.login(bskyAccount);
     const text = await getPostText();
-    if (!dryRun || text !== null) {
+    if (!dryRun || text !== "") {
       await bot.post(text);
     }
     return text;
